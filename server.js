@@ -37,12 +37,12 @@ app.use((req, res, next) => {
     next();
 });
 // Render maintenance page 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs', {
-        pageTitle: 'Express App - Maintenance',
-        message: 'Site down for maintenance. Back soon.'
-    });
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs', {
+//         pageTitle: 'Express App - Maintenance',
+//         message: 'Site down for maintenance. Back soon.'
+//     });
+// });
 // Load static pages
 app.use(express.static(__dirname + '/public'));
 
@@ -63,6 +63,12 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'This is not a valid URL.'
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page',
     });
 });
 
